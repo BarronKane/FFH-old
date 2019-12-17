@@ -31,7 +31,7 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(EXPORT FFHLibraryConfig DESTINATION share/FFHLibrary/cmake)
 
 # Importable from build directory.
-export(TARGETS ${CMAKE_PROJECT_NAME} FILE MyLibraryConfig.cmake)
+export(TARGETS ${CMAKE_PROJECT_NAME} FILE FFHLibraryConfig.cmake)
 
 add_executable (test
     ${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp

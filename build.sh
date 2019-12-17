@@ -1,7 +1,12 @@
 #!/bin/bash
 
+set -e
+
+cd "`dirname "$0"`"
+
 mkdir -p build/
 
-cd ./build/
-
+pushd build/
 cmake ../src/
+cmake --build .
+popd > /dev/null
