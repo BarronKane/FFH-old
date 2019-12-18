@@ -54,5 +54,7 @@ lib/*
 bin/*
 test/test_runner
 
+.vscode
+
 # Ignore python virtualenv
 env/
