@@ -12,6 +12,10 @@ add_library(${CMAKE_PROJECT_NAME}
     ${FFH_PUBLIC}
 )
 
+target_link_libraries(${CMAKE_PROJECT_NAME}
+    ${CONAN_LIBS}
+)
+
 # Defines the headers for this library,
 # and will be added to build paths.
 target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC

@@ -37,7 +37,7 @@ You can run either of the build scripts provided, but often you need custom
 arguments. We use [conan](https://conan.io/) so you might benefit from exploring
 their documentation.
 
-1. mkdir build && cd build
-2. conan install ../src/
-3. cmake ../src/
-4. cmake --build .
+1. `mkdir build && cd build`
+2. `conan install ..\src\ --build missing -s build_type=Debug`
+3. `cmake ../src/`
+4. `cmake --build .`

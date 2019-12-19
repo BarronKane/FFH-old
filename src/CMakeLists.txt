@@ -24,6 +24,10 @@ function(add_subdirectory_with_folder _folder_name _folder)
     set_property(DIRECTORY "${_folder}" PROPERTY FOLDER "${_folder_name}")
 endfunction()
 
+# Add conan libs to be visible by CMake.
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 add_subdirectory_with_folder("factorio-frame-host" factorio-frame-host)
 
 #enable_testing()
