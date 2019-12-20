@@ -6,6 +6,10 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # TODO: Compiler flags
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF) # -std=c++xx instead of -std=gnu++xx
+
 # Platform agnostic installation trees.
 include(GNUInstallDirs)
 
