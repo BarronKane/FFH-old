@@ -29,5 +29,6 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 add_subdirectory_with_folder("factorio-frame-host" factorio-frame-host)
+add_subdirectory_with_folder("ffh-server" ffh-server)
 
 #enable_testing()
