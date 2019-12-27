@@ -4,13 +4,13 @@ set(FFH_PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/private/factorio-frame-host.cpp
 
     #SUBPROCESS
-    ${CMAKE_CURRENT_SOURCE_DIR}/private/subprocess/subprocess.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/private/subprocess/factorio_process.cpp
 )
 set(FFH_PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/public/factorio-frame-host.h
 
     #SUBPROCESS
-    ${CMAKE_CURRENT_SOURCE_DIR}/public/subprocess/subprocess.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/public/subprocess/factorio_process.h
 )
 
 add_library(${CMAKE_PROJECT_NAME}
