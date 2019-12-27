@@ -18,6 +18,12 @@ add_library(${CMAKE_PROJECT_NAME}
     ${FFH_PUBLIC}
 )
 
+if(WIN32)
+    target_compile_definitions(${CMAKE_PROJECT_NAME}
+        PRIVATE -D _WIN32_WINNT=0x0601
+    )
+endif(WIN32)
+
 target_link_libraries(${CMAKE_PROJECT_NAME}
     ${CONAN_LIBS}
 )
