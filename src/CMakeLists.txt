@@ -1,6 +1,6 @@
 # This may change but for now matching the version I'm utilizing.
 cmake_minimum_required(VERSION 3.14.5)
-project(factorio-web-admin)
+project(factorio-frame-host)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -32,7 +32,7 @@ endfunction()
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_subdirectory_with_folder("factorio-frame-host" factorio-frame-host)
-add_subdirectory_with_folder("factorio-frame-host" ffh-server)
+add_subdirectory_with_folder("factorio-frame-host" frame-host)
+add_subdirectory_with_folder("factorio-frame-host" frame-host-api)
 
 #enable_testing()

@@ -1,9 +1,14 @@
 #include "subprocess/factorio_process.h"
 
-namespace subprocess
+namespace factorio
 {
 
-int child_process::spawn(boost::filesystem::path p, std::string args)
+factorio_process::factorio_process()
+{
+
+}
+
+int factorio_process::spawn(boost::filesystem::path p, std::string args)
 {
 
 	boost::process::child c(p, args);
@@ -15,4 +20,4 @@ int child_process::spawn(boost::filesystem::path p, std::string args)
 
 }
 
-} // namespace subprocess
+} // namespace factorio
