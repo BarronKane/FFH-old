@@ -1,13 +1,34 @@
 #include <iostream>
+#include <string>
+
+#include <boost/program_options.hpp>
 
 #include "factorio-frame-host.h"
 
-// C++17 quick constexpr lambda test.
-constexpr int addOne(int n) {
-    return [n] {return n + 1; }();
-}
+namespace opt = boost::program_options;
 
 int main(int argc, char *argv[])
 {
-    static_assert(addOne(1) == 2);
+	opt::options_description desc("All options");
+
+	desc.add_options()
+		("dir,d", opt::value<std::string>(), "Factorio install directory.")
+		("help,h", "CLI help information.");
+
+	opt::variables_map vm;
+	opt::store(opt::parse_command_line(argc, argv, desc), vm);
+	opt::notify(vm);
+
+	if (vm.count("help"))
+	{
+		std::cout << desc << "\n";
+		return 1;
+	}
+
+	if (vm.count("dir"))
+	{
+		std::cout << "Selected dir: " << vm["dir"].as<std::string>() << std::endl;
+	}
+
+	return 0;
 }
