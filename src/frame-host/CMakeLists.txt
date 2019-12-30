@@ -19,12 +19,6 @@ add_library(${FFH_NAME}
     ${FFH_PUBLIC}
 )
 
-if(WIN32)
-    target_compile_definitions(${FFH_NAME}
-        PRIVATE -D _WIN32_WINNT=0x0601
-    )
-endif(WIN32)
-
 target_link_libraries(${FFH_NAME}
     ${CONAN_LIBS}
 )

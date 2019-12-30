@@ -2,9 +2,19 @@
 cmake_minimum_required(VERSION 3.14.5)
 project(factorio-frame-host)
 
+include(GenerateExportHeader)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # TODO: Compiler flags
+
+if(WIN32)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+    add_compile_definitions(
+        _WIN32_WINNT=0x0601
+    )
+endif(WIN32)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -34,5 +44,7 @@ conan_basic_setup()
 
 add_subdirectory_with_folder("factorio-frame-host" frame-host)
 add_subdirectory_with_folder("factorio-frame-host" frame-host-api)
+
+add_subdirectory_with_folder("utilities" utilities)
 
 #enable_testing()
