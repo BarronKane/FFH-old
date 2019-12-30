@@ -2,10 +2,12 @@ project(utilities)
 set(UTILITIES ${PROJECT_NAME} CACHE INTERNAL "UTILITIES")
 
 set(UTIL_PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/logger/logger.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/logger/private/logger.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/logger/private/logger_service.cpp
 )
 set(UTIL_PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/logger/logger.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger_service.hpp
 )
 
 add_library(${UTILITIES} SHARED
@@ -18,7 +20,7 @@ generate_export_header(${UTILITIES})
 # Defines the headers for this library,
 # and will be added to build paths.
 target_include_directories(${UTILITIES} PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/public>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/logger/public>
     $<INSTALL_INTERFACE:public>
     PRIVATE src)
 
