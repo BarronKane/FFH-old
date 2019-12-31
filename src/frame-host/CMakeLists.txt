@@ -1,5 +1,5 @@
 project(frame-host)
-set(FFH_NAME ${PROJECT_NAME} CACHE INTERNAL "FFH_NAME")
+set(FACTORIO_FRAME_HOST ${PROJECT_NAME} CACHE INTERNAL "FACTORIO_FRAME_HOST")
 
 set(FFH_PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/private/factorio-frame-host.cpp
@@ -18,25 +18,25 @@ set(FFH_COLLECTIVE
     ${FFH_PUBLIC}
 )
 
-add_library(${FFH_NAME}
+add_library(${FACTORIO_FRAME_HOST}
     ${FFH_COLLECTIVE}
 )
 
 add_source_group(${FFH_COLLECTIVE})
 
-target_link_libraries(${FFH_NAME}
+target_link_libraries(${FACTORIO_FRAME_HOST}
     ${CONAN_LIBS}
 )
 
 # Defines the headers for this library,
 # and will be added to build paths.
-target_include_directories(${FFH_NAME} PUBLIC
+target_include_directories(${FACTORIO_FRAME_HOST} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/public>
     $<INSTALL_INTERFACE:public>
     PRIVATE src)
 
 # "make install" to the correct locations (GNUInstallDirs).
-install(TARGETS ${FFH_NAME} EXPORT FFHLibraryConfig
+install(TARGETS ${FACTORIO_FRAME_HOST} EXPORT FFHLibraryConfig
     ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows.
@@ -47,14 +47,14 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(EXPORT FFHLibraryConfig DESTINATION share/FFHLibrary/cmake)
 
 # Importable from build directory.
-export(TARGETS ${FFH_NAME} FILE FFHLibraryConfig.cmake)
+export(TARGETS ${FACTORIO_FRAME_HOST} FILE FFHLibraryConfig.cmake)
 
 add_executable (test
     ${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp
 )
 
 target_link_libraries(test
-    ${FFH_NAME}
+    ${FACTORIO_FRAME_HOST}
 )
 
 #add_test()

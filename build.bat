@@ -25,7 +25,7 @@ goto :EOF
 :ISPOWERSHELL 
 
 echo POWERSHELL DETECTED,
-echo you may have to run 'env/Scripts/activate.ps1 manually.
+echo you may have to run 'env/Scripts/activate.ps1' manually.
 
 goto :build 
 
