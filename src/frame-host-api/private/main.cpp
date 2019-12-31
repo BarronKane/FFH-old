@@ -1,7 +1,11 @@
 #include <iostream>
 #include <string>
 
+#include <boost/asio.hpp>
+#include <boost/bind.hpp>
 #include <boost/program_options.hpp>
+
+#include "logger.hpp"
 
 #include "factorio-frame-host.h"
 
@@ -9,6 +13,11 @@ namespace opt = boost::program_options;
 
 int main(int argc, char *argv[])
 {
+	boost::asio::io_context io_context;
+	utilities::logger logger(io_context, "");
+	logger.use_file("log.txt");
+	
+
 	opt::options_description desc("All options");
 
 	desc.add_options()
@@ -22,6 +31,7 @@ int main(int argc, char *argv[])
 	if (vm.count("help"))
 	{
 		std::cout << desc << "\n";
+		logger.log("Printing help...");
 		return 1;
 	}
 

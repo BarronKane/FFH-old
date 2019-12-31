@@ -1,24 +1,10 @@
-#pragma once
-
-#include <utilities_export.h>
+#include "asio_logger.hpp"
+#include "logger_service.hpp"
 
 namespace utilities
 {
 
-class logger
-{
-public:
-
-	logger();
-	~logger();
-
-	void use_file();
-
-	void log();
-
-private:
-
-
-};
+// Typedef for typical logger usage.
+typedef asio_logger<logger_service> logger;
 
 } // namespace utilities

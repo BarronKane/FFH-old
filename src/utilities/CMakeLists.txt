@@ -2,12 +2,12 @@ project(utilities)
 set(UTILITIES ${PROJECT_NAME} CACHE INTERNAL "UTILITIES")
 
 set(UTIL_PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/logger/private/logger.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/private/logger_service.cpp
 )
 set(UTIL_PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger_service.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/asio_logger.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger.hpp
 )
 
 add_library(${UTILITIES} SHARED
