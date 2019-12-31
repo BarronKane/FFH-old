@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.14.5)
 project(factorio-frame-host)
 
 include(GenerateExportHeader)
+include(${CMAKE_SOURCE_DIR}/cmake/helpers.cmake)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -33,18 +34,13 @@ define_property(
     FULL_DOCS  "Use to organize targets in an IDE."
 )
 
-function(add_subdirectory_with_folder _folder_name _folder)
-    add_subdirectory(${_folder} ${ARGN})
-    set_property(DIRECTORY "${_folder}" PROPERTY FOLDER "${_folder_name}")
-endfunction()
-
 # Add conan libs to be visible by CMake.
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+add_subdirectory_with_folder("utilities" utilities)
+
 add_subdirectory_with_folder("factorio-frame-host" frame-host)
 add_subdirectory_with_folder("factorio-frame-host" frame-host-api)
-
-add_subdirectory_with_folder("utilities" utilities)
 
 #enable_testing()

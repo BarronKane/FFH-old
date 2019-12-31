@@ -9,11 +9,16 @@ set(UTIL_PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/asio_logger.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger.hpp
 )
-
-add_library(${UTILITIES} SHARED
+set(UTIL_COLLECTIVE
     ${UTIL_PRIVATE}
     ${UTIL_PUBLIC}
+)
+
+add_library(${UTILITIES} SHARED
+    ${UTIL_COLLECTIVE}
 ) 
+
+add_source_group(${UTIL_COLLECTIVE})
 
 generate_export_header(${UTILITIES})
 

@@ -13,11 +13,16 @@ set(FFH_PUBLIC
     #SUBPROCESS
     ${CMAKE_CURRENT_SOURCE_DIR}/public/subprocess/factorio_process.h
 )
-
-add_library(${FFH_NAME}
+set(FFH_COLLECTIVE
     ${FFH_PRIVATE}
     ${FFH_PUBLIC}
 )
+
+add_library(${FFH_NAME}
+    ${FFH_COLLECTIVE}
+)
+
+add_source_group(${FFH_COLLECTIVE})
 
 target_link_libraries(${FFH_NAME}
     ${CONAN_LIBS}

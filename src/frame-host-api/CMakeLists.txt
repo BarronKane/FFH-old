@@ -3,17 +3,23 @@
 project(frame-host-api)
 set(FFH_API_NAME ${PROJECT_NAME} CACHE INTERNAL "FFH_API_NAME")
 
-set(FFH_PRIVATE
+set(FFHA_PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/private/main.cpp
 )
-set(FFH_PUBLIC
+set(FFHA_PUBLIC
     
 )
 
-add_executable(${PROJECT_NAME}
-    ${FFH_PRIVATE}
-    ${FFH_PUBLIC}
+set(FFHA_COLLECTIVE
+    ${FFHA_PRIVATE}
+    ${FFHA_PUBLIC}
 )
+
+add_executable(${PROJECT_NAME}
+    ${FFHA_COLLECTIVE}
+)
+
+add_source_group(${FFHA_COLLECTIVE})
 
 target_link_libraries(${PROJECT_NAME}
     ${FFH_NAME}
