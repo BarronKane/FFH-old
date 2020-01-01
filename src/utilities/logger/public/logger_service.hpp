@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <iostream>
 
 namespace utilities
 {
@@ -88,11 +89,22 @@ public:
     {
         // Format text.
         std::ostringstream os;
-        os << impl->identifier << ": " << message;
+        std::ostringstream oo;
+
+        os << boost::posix_time::second_clock::local_time()
+           << " <" << impl->identifier << ">" << ": " 
+           << message;
+
+        oo << " <" << impl->identifier << ">" << ": "
+           << message;
 
         // Pass io work to the background thread.
         boost::asio::post(work_io_context_, boost::bind(
-                                                &logger_service::log_impl, this, os.str()));
+            &logger_service::log_impl, this, os.str()));
+
+        boost::asio::post(work_io_context_, boost::bind(
+            &logger_service::log_console_impl, this, oo.str()));
+
     }
 
 private:
@@ -105,10 +117,17 @@ private:
         ofstream_.open(file.c_str());
     }
 
+    // TODO: Log levels.
     // Log a message from within the private thread.
     void log_impl(const std::string &text)
     {
         ofstream_ << text << std::endl;
+    }
+
+    // Mirror message to console.
+    void log_console_impl(const std::string& text)
+    {
+        std::cout << text << std::endl;
     }
 
     // Private io_context used for performing logging operations.

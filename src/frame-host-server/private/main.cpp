@@ -14,7 +14,7 @@ namespace opt = boost::program_options;
 int main(int argc, char *argv[])
 {
 	boost::asio::io_context io_context;
-	utilities::logger logger(io_context, "");
+	utilities::logger logger(io_context, "Server");
 	logger.use_file("log.txt");
 	
 
@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 	{
 		std::cout << desc << "\n";
 		logger.log("Printing help...");
+
 		return 1;
 	}
 
