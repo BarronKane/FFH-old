@@ -4,7 +4,11 @@
 #include <boost/noncopyable.hpp>
 #include <string>
 
+#include "logger_helpers.hpp"
+
 namespace utilities
+{
+namespace logging
 {
 
 template <typename Service>
@@ -40,9 +44,9 @@ public:
 		service_.use_file(impl_, file);
 	}
 
-	void log(const std::string& message)
+	void log(const std::string& message, log_level lvl = DEBUG)
 	{
-		service_.log(impl_, message);
+		service_.log(impl_, message, lvl);
 	}
 
 private:
@@ -52,4 +56,5 @@ private:
 	impl_type impl_;
 };
 
+} // namespace logging
 } // namespace utilities

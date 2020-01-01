@@ -11,7 +11,11 @@
 #include <string>
 #include <iostream>
 
+#include "logger_helpers.hpp"
+
 namespace utilities
+{
+namespace logging
 {
 
 class logger_service
@@ -85,17 +89,19 @@ public:
                                                 &logger_service::use_file_impl, this, file));
     }
 
-    void log(impl_type &impl, const std::string &message)
+    void log(impl_type &impl, const std::string &message, log_level lvl)
     {
         // Format text.
         std::ostringstream os;
         std::ostringstream oo;
 
-        os << boost::posix_time::second_clock::local_time()
+        os << "[" << ToString(lvl) << "]"
+           << boost::posix_time::second_clock::local_time()
            << " <" << impl->identifier << ">" << ": " 
            << message;
 
-        oo << " <" << impl->identifier << ">" << ": "
+        oo << "[" << ToString(lvl) << "]"
+           << " <" << impl->identifier << ">" << ": "
            << message;
 
         // Pass io work to the background thread.
@@ -147,4 +153,5 @@ private:
     std::ofstream ofstream_;
 };
 
+} // namespace logging
 } // namespace utilities
