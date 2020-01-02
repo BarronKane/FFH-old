@@ -32,6 +32,7 @@ target_link_libraries(${FACTORIO_FRAME_HOST}
 # and will be added to build paths.
 target_include_directories(${FACTORIO_FRAME_HOST} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/public>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/public/subprocess>
     $<INSTALL_INTERFACE:public>
     PRIVATE src)
 

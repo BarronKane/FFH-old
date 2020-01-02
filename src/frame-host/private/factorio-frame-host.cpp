@@ -5,8 +5,17 @@
 
 #include "factorio-frame-host.h"
 
-void factorio::test()
+namespace factorio
 {
-    std::cout << "Hello, world!" << '\n';
-    std::cout << boost::chrono::high_resolution_clock::now() << '\n';
+
+server::server()
+{
 }
+
+void server::build_args()
+{
+	
+}
+
+
+} // namespace factorio

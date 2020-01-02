@@ -9,6 +9,7 @@
 namespace factorio
 {
 
+// TODO: This may end up a singleton or otherwise noncopyable.
 class factorio_process
 {
 
