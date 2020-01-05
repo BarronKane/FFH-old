@@ -32,6 +32,7 @@ goto :build
 
 :error 
 echo Python environment not setup, see README.md
+pause
 goto :EOF
 
 :GETPARENT
