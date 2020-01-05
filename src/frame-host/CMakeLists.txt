@@ -50,12 +50,12 @@ install(EXPORT FFHLibraryConfig DESTINATION share/FFHLibrary/cmake)
 # Importable from build directory.
 export(TARGETS ${FACTORIO_FRAME_HOST} FILE FFHLibraryConfig.cmake)
 
-add_executable (test
-    ${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp
-)
+#add_executable (test
+#    ${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp
+#)
 
-target_link_libraries(test
-    ${FACTORIO_FRAME_HOST}
-)
+#target_link_libraries(test
+#    ${FACTORIO_FRAME_HOST}
+#)
 
 #add_test()
