@@ -2,6 +2,8 @@ from conans import ConanFile, CMake
 
 
 class FactorioFrameHost(ConanFile):
+    name = "Factorio Frame Host"
+    version = "0.0.0" # 0.1.0 at first functional release.
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake", "gcc", "txt"
     default_options = {"cpprestsdk:shared": True, "OpenSSL:shared": True}
