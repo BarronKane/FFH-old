@@ -10,6 +10,13 @@ namespace factorio
 
 server::server()
 {
+	init();
+}
+
+void server::init()
+{
+	build_args();
+	// factorio_process::launch();
 }
 
 void server::build_args()

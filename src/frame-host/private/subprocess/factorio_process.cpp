@@ -5,7 +5,6 @@ namespace factorio
 
 factorio_process::factorio_process()
 {
-
 }
 
 void factorio_process::launch(boost::filesystem::path p, std::string args)

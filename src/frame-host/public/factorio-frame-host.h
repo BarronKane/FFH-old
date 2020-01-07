@@ -1,13 +1,20 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <utility>
 
 #include "factorio_process.h"
 
 namespace factorio
 {
 
-class server
+struct factorio_args
+{
+	std::vector<std::pair<std::string, std::string>> args_;
+};
+
+class server : private factorio_process
 {
 
 public:
@@ -28,7 +35,9 @@ public:
 
 private:
 
-	factorio_process process;
+	void init();
+
+	factorio_args args_;
 };
 
 

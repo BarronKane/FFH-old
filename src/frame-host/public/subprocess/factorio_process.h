@@ -22,15 +22,13 @@ public:
 	factorio_process();
 	~factorio_process();
 
-	
-
 	void launch(boost::filesystem::path p, std::string args);
 
 private: 
 
 	// TODO: Error check for *nix/win paths.
 	boost::filesystem::path path_;
-	std::vector<std::string> args_;
+	std::string args_;
 	
 	bp::child factorio_subprocess;
 	bp::ipstream pipe_stream;
