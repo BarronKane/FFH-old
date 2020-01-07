@@ -10,7 +10,13 @@ source $(pwd)/env/bin/activate
 
 pushd build/
 conan install ../src/ --build missing -s build_type=Debug
-cmake ../src/
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	cmake ../src/ -G "Xcode"
+else
+	cmake ../src/
+fi
+
 cmake --build .
 popd > /dev/null
 
