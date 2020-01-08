@@ -11,7 +11,25 @@ namespace factorio
 
 struct factorio_args
 {
-	std::vector<std::pair<std::string, std::string>> args_;
+	// These are all strings (for now) to allow flexibility.
+	// TODO: Checks for acceptible inputs.
+
+	// REQUIRED/OPTIONALLY DEFAULT
+	std::string library_path;
+	std::string executable_path;
+
+	std::string bind;
+	std::string port;
+	std::string server_settings;
+	std::string rcon_port;
+	std::string rcon_password;
+
+	std::string server_adminlist;
+
+	// OPTIONAL
+	std::string mod_directory;
+
+	std::vector<std::pair<std::string, std::string>> arguments;
 };
 
 class server : private factorio_process
@@ -37,7 +55,7 @@ private:
 
 	void init();
 
-	factorio_args args_;
+	std::unique_ptr<factorio_args> m_args = std::make_unique<factorio_args>();
 };
 
 
