@@ -32,7 +32,7 @@ target_include_directories(${FFH_API} PUBLIC
     PRIVATE src)
 
 # "make install" to the correct locations (GNUInstallDirs).
-install(TARGETS ${FFH_API} EXPORT FFHALibraryConfig
+install(TARGETS ${FFH_API} EXPORT ${PROJECT_NAME}LibraryConfig
     ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows.
@@ -40,10 +40,10 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # Importable from the install directory.
 # Config file per-project dir or into "cmake".
-install(EXPORT FFHALibraryConfig DESTINATION share/FFHALibrary/cmake)
+install(EXPORT ${PROJECT_NAME}LibraryConfig DESTINATION share/${PROJECT_NAME}Library/cmake)
 
 # Importable from build directory.
-export(TARGETS ${FFH_API} FILE FFHALibraryConfig.cmake)
+export(TARGETS ${FFH_API} FILE ${PROJECT_NAME}LibraryConfig.cmake)
 
 target_link_libraries(${PROJECT_NAME}
     ${FACTORIO_FRAME_HOST}

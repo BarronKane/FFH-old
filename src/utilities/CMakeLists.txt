@@ -31,7 +31,7 @@ target_include_directories(${UTILITIES} PUBLIC
     PRIVATE src)
 
 # "make install" to the correct locations (GNUInstallDirs).
-install(TARGETS ${UTILITIES} EXPORT UtilLibraryConfig
+install(TARGETS ${UTILITIES} EXPORT ${PROJECT_NAME}LibraryConfig
     ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows.
@@ -39,7 +39,7 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # Importable from the install directory.
 # Config file per-project dir or into "cmake".
-install(EXPORT UtilLibraryConfig DESTINATION share/UtilLibrary/cmake)
+install(EXPORT ${PROJECT_NAME}LibraryConfig DESTINATION share/${PROJECT_NAME}Library/cmake)
 
 # Importable from build directory.
-export(TARGETS ${UTILITIES} FILE UtilLibraryConfig.cmake)
+export(TARGETS ${UTILITIES} FILE ${PROJECT_NAME}LibraryConfig.cmake)

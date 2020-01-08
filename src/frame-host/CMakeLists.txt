@@ -37,7 +37,7 @@ target_include_directories(${FACTORIO_FRAME_HOST} PUBLIC
     PRIVATE src)
 
 # "make install" to the correct locations (GNUInstallDirs).
-install(TARGETS ${FACTORIO_FRAME_HOST} EXPORT FFHLibraryConfig
+install(TARGETS ${FACTORIO_FRAME_HOST} EXPORT ${PROJECT_NAME}LibraryConfig
     ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows.
@@ -45,10 +45,10 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # Importable from the install directory.
 # Config file per-project dir or into "cmake".
-install(EXPORT FFHLibraryConfig DESTINATION share/FFHLibrary/cmake)
+install(EXPORT ${PROJECT_NAME}LibraryConfig DESTINATION share/${PROJECT_NAME}Library/cmake)
 
 # Importable from build directory.
-export(TARGETS ${FACTORIO_FRAME_HOST} FILE FFHLibraryConfig.cmake)
+export(TARGETS ${FACTORIO_FRAME_HOST} FILE ${PROJECT_NAME}LibraryConfig.cmake)
 
 #add_executable (test
 #    ${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp
