@@ -9,7 +9,47 @@
 namespace factorio
 {
 
+template<typename T>
+struct argument
+{
+	std::string ID;
+	std::string arg_;
+	T value;
+
+	argument(std::string arg, T val)
+	{
+		arg_ = arg;
+		value = val;
+	}
+	argument(std::string name, std::string arg, T val)
+	{
+		ID == name;
+		arg_ = arg;
+		value = val;
+	}
+
+};
+
 struct factorio_args
+{
+
+	template<typename T>
+	void AddArg(const typename argument<T>&)
+	{
+		arguments.push_back(std::make_tuple(
+			argument.name,
+			argument.arg_,
+			std::to_string(argument.value)
+		));
+	}
+
+	//std::vector<std::pair<std::string, std::string>> arguments;
+	std::vector <std::tuple<std::string, 
+							std::string, 
+							std::string>> arguments;
+};
+
+struct factorio_args_old
 {
 	// These are all strings (for now) to allow flexibility.
 	// TODO: Checks for acceptible inputs.
@@ -29,7 +69,6 @@ struct factorio_args
 	// OPTIONAL
 	std::string mod_directory;
 
-	std::vector<std::pair<std::string, std::string>> arguments;
 };
 
 class server : private factorio_process
@@ -38,8 +77,6 @@ class server : private factorio_process
 public:
 
 	server();
-
-	void build_args();
 
 	/**
 	* TODOs: 
@@ -50,12 +87,16 @@ public:
 	* 5. Stdout log recording.
 	*/
 
+	void launch();
+
 
 private:
 
-	void init();
+	void init(factorio_args& args);
 
-	std::unique_ptr<factorio_args> m_args = std::make_unique<factorio_args>();
+	void build_args();
+
+	std::vector<std::pair<std::string, std::string>> m_arguments;
 };
 
 

@@ -22,9 +22,9 @@ public:
 	factorio_process();
 	~factorio_process();
 
-	void launch(boost::filesystem::path p, std::string args);
+	virtual void launch(boost::filesystem::path p, std::string args);
 
-private: 
+private:
 
 	// TODO: Error check for *nix/win paths.
 	boost::filesystem::path path_;
