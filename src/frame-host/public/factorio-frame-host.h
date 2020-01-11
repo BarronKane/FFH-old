@@ -9,6 +9,7 @@
 namespace factorio
 {
 
+/*
 template<typename T>
 struct argument
 {
@@ -29,7 +30,8 @@ struct argument
 	}
 
 };
-
+*/
+/*
 struct factorio_args
 {
 
@@ -48,6 +50,7 @@ struct factorio_args
 							std::string, 
 							std::string>> arguments;
 };
+*/
 
 struct factorio_args_old
 {
@@ -89,14 +92,13 @@ public:
 
 	void launch();
 
+	void add_arg(std::string name, std::string arg, std::string value);
 
 private:
 
-	void init(factorio_args& args);
-
-	void build_args();
-
-	std::vector<std::pair<std::string, std::string>> m_arguments;
+	std::vector <std::tuple<std::string,
+							std::string,
+							std::string>> m_arguments;
 };
 
 

@@ -41,12 +41,11 @@ int main(int argc, char *argv[])
 		std::cout << "Selected dir: " << vm["dir"].as<std::string>() << std::endl;
 
 		factorio::server server;
-		factorio::factorio_args args;
 
-		factorio::argument bind("IP", "--bind", "0.0.0.0");
-		factorio::argument port("port", "--port", "34197");
+		// factorio::argument bind("IP", "--bind", "0.0.0.0");
+		// factorio::argument port("port", "--port", "34197");
 
-		args.AddArg(bind);
+		server.add_arg("bind", "IP", "0.0.0.0");
 		
 	}
 

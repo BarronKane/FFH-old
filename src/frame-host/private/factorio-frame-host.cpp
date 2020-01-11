@@ -12,22 +12,16 @@ server::server()
 {
 }
 
-void server::init(factorio_args& args)
-{
-	build_args();
-}
-
 void server::launch()
 {
 	// this->factorio_process::launch();
 }
 
-/*
-void server::build_args()
+void server::add_arg(std::string name, std::string arg, std::string value)
 {
-
+	m_arguments.push_back(std::make_tuple(name, arg, value));
 }
-*/
+
 
 
 } // namespace factorio
