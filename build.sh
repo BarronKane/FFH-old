@@ -9,12 +9,12 @@ mkdir -p build/
 source $(pwd)/env/bin/activate
 
 pushd build/
-conan install ../src/ --build missing -s build_type=Debug
+conan install .. --build missing -s build_type=Debug
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	cmake ../src/ -G "Xcode"
+	cmake .. -G "Xcode"
 else
-	cmake ../src/
+	cmake ..
 fi
 
 cmake --build .

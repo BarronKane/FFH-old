@@ -38,11 +38,11 @@ define_property(
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_subdirectory_with_folder("utilities" utilities)
+add_subdirectory_with_folder("utilities" src/utilities)
 
-add_subdirectory_with_folder("factorio-frame-host" frame-host)
-add_subdirectory_with_folder("factorio-frame-host" frame-host-api)
+add_subdirectory_with_folder("factorio-frame-host" src/frame-host)
+add_subdirectory_with_folder("factorio-frame-host" src/frame-host-api)
 
-add_subdirectory_with_folder("factorio-frame-host" frame-host-server)
+add_subdirectory_with_folder("factorio-frame-host" src/frame-host-server)
 
 #enable_testing()
