@@ -1,11 +1,11 @@
 #pragma once
 
 #include <string>
-#include <vector>
 #include <thread>
+#include <vector>
 
-#include <boost/noncopyable.hpp>
 #include <boost/filesystem.hpp>
+#include <boost/noncopyable.hpp>
 #include <boost/process.hpp>
 
 namespace bp = boost::process;
@@ -27,13 +27,13 @@ public:
 private:
 
 	// TODO: Error check for *nix/win paths.
-	boost::filesystem::path path_;
-	std::string args_;
+	boost::filesystem::path _path;
+	std::string _args;
 	
-	bp::child factorio_subprocess;
-	bp::ipstream pipe_stream;
+	bp::child _factorio_process;
+	bp::ipstream _pipe_stream;
 
-	std::thread pipe_stream_reader;
+	std::thread _pipe_stream_reader;
 };
 
 } // namespace factorio

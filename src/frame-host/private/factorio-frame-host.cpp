@@ -19,7 +19,7 @@ void server::launch()
 
 void server::add_arg(std::string name, std::string arg, std::string value)
 {
-	m_arguments.push_back(std::make_tuple(name, arg, value));
+	_arguments.push_back(std::make_tuple(name, arg, value));
 }
 
 

@@ -98,7 +98,7 @@ private:
 
 	std::vector <std::tuple<std::string,
 							std::string,
-							std::string>> m_arguments;
+							std::string>> _arguments;
 };
 
 
