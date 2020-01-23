@@ -32,6 +32,7 @@ generate_export_header(${UTILITIES})
 # and will be added to build paths.
 target_include_directories(${UTILITIES} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/logger/public>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/platform/public>
     $<INSTALL_INTERFACE:public>
     PRIVATE src)
 
