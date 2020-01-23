@@ -2,9 +2,14 @@ project(utilities)
 set(UTILITIES ${PROJECT_NAME} CACHE INTERNAL "UTILITIES")
 
 set(UTIL_PRIVATE
+    # LOGGER
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/private/logger_service.cpp
 )
 set(UTIL_PUBLIC
+    # PLATFORM
+    ${CMAKE_CURRENT_SOURCE_DIR}/platform/public/platform.h
+
+    # LOGGER
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger_helpers.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/logger_service.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/logger/public/asio_logger.hpp
